@@ -9,6 +9,8 @@ def encryptmono(a):
             result += key_lower[text_index]
         elif char == ' ':
             result+=' '
+        else :
+            result+=char
     return result
 
 def decryptmono(a):
@@ -22,19 +24,29 @@ def decryptmono(a):
             result += alphabets_lower[text_index]
         elif char == ' ':
             result+=' '
+        else:
+            result+= char
     return result
 
 alphabets_upper='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 alphabets_lower='abcdefghijklmnopqrstuvwxyz'
 key_upper='QWERTYUIOPASDFGHJKLZXCVBNM'
 key_lower='qwertyuiopasdfghjklzxcvbnm'
-choice = int(input('Do you want to encrypt (1) or decrypt (2) : '))
-if choice == 1:
-    a = input("Enter the string to encrypt : ")
-    encrypted = encryptmono(a)
-    print(f'The Encrypted cipher text is : {encrypted}')
-elif choice == 2: 
-    a = input("Enter the string to decrypt : ")
-    decrypted = decryptmono(a)
-    print(f'The Decrypted cipher text is : {decrypted}')
+val = True
+while val:
+    choice = int(input('Do you want to encrypt (1) or decrypt (2) or exit (3) : '))
+    if choice == 1:
+        a = input("Enter the string to encrypt : ")
+        encrypted = encryptmono(a)
+        print(f'The Encrypted cipher text is : {encrypted}\n')
+    elif choice == 2: 
+        a = input("Enter the string to decrypt : ")
+        decrypted = decryptmono(a)
+        print(f'The Decrypted cipher text is : {decrypted}\n')
+    elif choice == 3:
+        print("Exiting.....")
+        val=False
+        exit()
+    else:
+        print("Wrong choice please select the correct option.\n")
 

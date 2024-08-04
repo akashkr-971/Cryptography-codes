@@ -57,28 +57,36 @@ def decryptplayfair(ciphertext, matrix, spaces):
         result = result[:pos] + ' ' + result[pos:]
     return result
 
-choice = int(input('Do you want to encrypt (1) or decrypt (2): '))
-if choice == 1:
-    plaintext = input("Enter the text to encrypt: ")
-    spaces = [pos for pos, char in enumerate(plaintext) if char == ' ']
-    plaintext = plaintext.upper().replace('J', 'I').replace(' ', '')
-    if len(plaintext) % 2 != 0:
-        plaintext += 'X'
-    key = input("Enter the key: ")
-    matrix = creatematrix(key)
-    print("5x5 Matrix:")
-    for row in matrix:
-        print(' '.join(row))
-    encrypted_text = encryptplayfair(plaintext, matrix, spaces)
-    print("\nEncrypted text:", encrypted_text)
-elif choice == 2:
-    ciphertext = input("Enter the text to decrypt: ")
-    spaces = [pos for pos, char in enumerate(ciphertext) if char == ' ']
-    ciphertext = ciphertext.upper().replace('J', 'I').replace(' ', '')
-    key = input("Enter the key: ")
-    matrix = creatematrix(key)
-    print("5x5 Matrix:")
-    for row in matrix:
-        print(' '.join(row))
-    decrypted_text = decryptplayfair(ciphertext, matrix, spaces)
-    print("\nDecrypted text:", decrypted_text)
+val = True
+while val:
+    choice = int(input('Do you want to encrypt (1) or decrypt (2) or exit (3) : '))
+    if choice == 1:
+        plaintext = input("Enter the text to encrypt: ")
+        spaces = [pos for pos, char in enumerate(plaintext) if char == ' ']
+        plaintext = plaintext.upper().replace('J', 'I').replace(' ', '')
+        if len(plaintext) % 2 != 0:
+            plaintext += 'X'
+        key = input("Enter the key: ")
+        matrix = creatematrix(key)
+        print("5x5 Matrix:")
+        for row in matrix:
+            print(' '.join(row))
+        encrypted_text = encryptplayfair(plaintext, matrix, spaces)
+        print(f"\nEncrypted text: {encrypted_text}\n", )
+    elif choice == 2:
+        ciphertext = input("Enter the text to decrypt: ")
+        spaces = [pos for pos, char in enumerate(ciphertext) if char == ' ']
+        ciphertext = ciphertext.upper().replace('J', 'I').replace(' ', '')
+        key = input("Enter the key: ")
+        matrix = creatematrix(key)
+        print("5x5 Matrix:")
+        for row in matrix:
+            print(' '.join(row))
+        decrypted_text = decryptplayfair(ciphertext, matrix, spaces)
+        print(f"\nDecrypted text: {decrypted_text}\n")
+    elif choice == 3:
+        print("Exiting.....")
+        val=False
+        exit()
+    else:
+        print("Wrong choice please select the correct option.\n")

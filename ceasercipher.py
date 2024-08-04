@@ -34,15 +34,23 @@ def decryptceaser(a,b):
 
 alphabets_upper='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 alphabets_lower='abcdefghijklmnopqrstuvwxyz'
-choice = int(input('Do you want to encrypt (1) or decrypt (2) : '))
-if choice == 1:
-    a = input("Enter the string to encrypt : ")
-    b = int(input("Enter the key to shift : "))
-    encrypted = encryptceaser(a,b)
-    print(f'The Encrypted cipher text is : {encrypted}')
-elif choice == 2: 
-    a = input("Enter the string to decrypt : ")
-    b = int(input("Enter the key to shift : "))
-    decrypted = decryptceaser(a,b)
-    print(f'The Decrypted cipher text is : {decrypted}')
+val = True
+while val:
+    choice = int(input('Do you want to encrypt (1) or decrypt (2) or exit (3): '))
+    if choice == 1:
+        a = input("Enter the string to encrypt : ")
+        b = int(input("Enter the key to shift : "))
+        encrypted = encryptceaser(a,b)
+        print(f'The Encrypted cipher text is : {encrypted}\n')
+    elif choice == 2: 
+        a = input("Enter the string to decrypt : ")
+        b = int(input("Enter the key to shift : "))
+        decrypted = decryptceaser(a,b)
+        print(f'The Decrypted cipher text is : {decrypted}\n')
+    elif choice == 3:
+        print("Exiting.....")
+        val=False
+        exit()
+    else:
+        print("Wrong choice please select the correct option.\n")
 
